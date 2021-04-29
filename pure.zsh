@@ -134,8 +134,8 @@ prompt_pure_preprompt_render() {
 	# Username and machine, if applicable.
 	[[ -n $prompt_pure_state[username] ]] && preprompt_parts+=($prompt_pure_state[username])
 
-	# Set the path.
-	preprompt_parts+=('%F{${prompt_pure_colors[path]}}%~%f')
+	# Set the path and prebar.
+	preprompt_parts+=('%(?.%F{$prompt_pure_colors[prompt:success]}.%F{$prompt_pure_colors[prompt:error]})╭─%f %F{${prompt_pure_colors[path]}}%~%f')
 
 	# Git branch and dirty status info.
 	typeset -gA prompt_pure_vcs_info
